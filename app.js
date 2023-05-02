@@ -12,7 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', require('./routes/index'));
+app.use('/home', require('./routes/index'));
 app.use('/api/user', require('./routes/users'));
+app.use('/api/employees', require('./routes/employees'));
 
 module.exports = app;
