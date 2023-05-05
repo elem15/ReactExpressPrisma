@@ -6,5 +6,5 @@ export const Paths = {
   employeeRemove: '/employees/remove',
   login: '/login',
   register: '/register',
-  current: '/current'
-} as const
+  current: '/current',
+} as const;

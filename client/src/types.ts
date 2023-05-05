@@ -1,6 +1,6 @@
 export type ErrorMessage = {
-  status: number,
+  status: number;
   data: {
-    message: string
-  }
-}
+    message: string;
+  };
+};

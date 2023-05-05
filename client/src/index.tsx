@@ -1,38 +1,44 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import App from './App';
 import './index.css';
 import { Paths } from './paths';
 import { Login } from './pages/login/Login';
 import { Register } from './pages/register/Register';
+import { ConfigProvider, theme } from 'antd';
 
 const router = createBrowserRouter([
   {
     path: Paths.home,
-    element: <h1>Home</h1>
+    element: <h1>Home</h1>,
   },
   {
     path: Paths.login,
-    element: <Login />
+    element: <Login />,
   },
   {
     path: Paths.register,
-    element: <Register />
+    element: <Register />,
   },
-])
-const container = document.getElementById('root')!;
+]);
+const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />      
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+        }}
+      >
+        <RouterProvider router={router} />
+      </ConfigProvider>
     </Provider>
-  </React.StrictMode>
+  </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
