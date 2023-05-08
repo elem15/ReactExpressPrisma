@@ -13,7 +13,6 @@ export const Header = () => {
   const isAuth = useAppSelector(selectIsAuthenticated);
   const handleLogout = () => {
     dispatch(logout());
-    localStorage.removeItem('token');
     navigate(Paths.login);
   };
   return (

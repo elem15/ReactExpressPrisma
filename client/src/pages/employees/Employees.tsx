@@ -38,7 +38,7 @@ export const Employees = () => {
     <Layout>
       <CustomButton
         type="primary"
-        onClick={() => null}
+        onClick={() => navigate(Paths.employeeAdd)}
         icon={<PlusCircleOutlined />}
       >
         Add

@@ -11,11 +11,18 @@ import { Register } from './pages/register/Register';
 import { ConfigProvider, theme } from 'antd';
 import { Auth } from './features/auth/auth';
 import { Employees } from './pages/employees/Employees';
+import { EmployeeAdd } from './pages/employeeAdd/EmployeeAdd';
+import { Status } from './pages/status/Status';
+import { NotFound } from './pages/404/NotFound';
 
 const router = createBrowserRouter([
   {
     path: Paths.home,
     element: <Employees />,
+  },
+  {
+    path: Paths.employeeAdd,
+    element: <EmployeeAdd />,
   },
   {
     path: Paths.login,
@@ -24,6 +31,14 @@ const router = createBrowserRouter([
   {
     path: Paths.register,
     element: <Register />,
+  },
+  {
+    path: `${Paths.status}/:status`,
+    element: <Status />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 const container = document.getElementById('root') as HTMLElement;

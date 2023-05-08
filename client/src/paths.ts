@@ -7,4 +7,5 @@ export const Paths = {
   login: '/login',
   register: '/register',
   current: '/current',
+  status: '/status',
 } as const;
