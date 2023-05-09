@@ -18,7 +18,7 @@ export const EmployeeAdd = () => {
   const navigate = useNavigate();
   const isAuth = useAppSelector(selectIsAuthenticated);
   const [addEmployee, addEmployeeResult] = useAddEmployeeMutation();
-  const onFinish = handleErrors(async (employee: Employee) => {
+  const onFinish = async (employee: Employee) => {
     try {
       await addEmployee(employee).unwrap();
       setError('');
@@ -31,7 +31,7 @@ export const EmployeeAdd = () => {
         setError('unknown error');
       }
     }
-  });
+  };
   useLayoutEffect(() => {
     if (!isAuth) navigate(Paths.login);
   }, [isAuth, navigate]);
@@ -41,6 +41,7 @@ export const EmployeeAdd = () => {
         <EmployeeForm
           title="Add Employee"
           btnText="Submit"
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onFinish={onFinish}
           error={error}
         />

@@ -14,17 +14,19 @@ const statuses: Record<string, string> = {
 export const Status = () => {
   const { status } = useParams();
   return (
-    <Row align="middle" justify="center" style={{ width: '100%' }}>
-      <Result
-        status={status ? 'success' : 404}
-        title={status ? statuses[status] : 'unknown'}
-        extra={
-          <Button>
-            <Link to={Paths.home}>Home</Link>
-          </Button>
-        }
-      />
-      <Title></Title>
-    </Row>
+    <Layout>
+      <Row align="middle" justify="center" style={{ width: '100%' }}>
+        <Result
+          status={status ? 'success' : 404}
+          title={status ? statuses[status] : 'unknown'}
+          extra={
+            <Button>
+              <Link to={Paths.home}>Home</Link>
+            </Button>
+          }
+        />
+        <Title></Title>
+      </Row>
+    </Layout>
   );
 };

@@ -14,6 +14,7 @@ import { Employees } from './pages/employees/Employees';
 import { EmployeeAdd } from './pages/employeeAdd/EmployeeAdd';
 import { Status } from './pages/status/Status';
 import { NotFound } from './pages/404/NotFound';
+import { Employee } from './pages/Employee/Employee';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: `${Paths.status}/:status`,
     element: <Status />,
+  },
+  {
+    path: `${Paths.employee}/:id`,
+    element: <Employee />,
   },
   {
     path: '*',

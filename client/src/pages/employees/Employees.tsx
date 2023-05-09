@@ -52,7 +52,7 @@ export const Employees = () => {
         onRow={(record) => {
           return {
             onClick: () => {
-              navigate(`${Paths.employees}/${record.id}`);
+              navigate(`${Paths.employee}/${record.id}`);
             },
           };
         }}

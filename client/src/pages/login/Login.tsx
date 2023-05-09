@@ -6,10 +6,7 @@ import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { Paths } from '../../paths';
 import { UserData, useLoginMutation } from '../../app/services/auth';
-import {
-  handleErrors,
-  isErrorWithMessage,
-} from '../../utils/isErrorWithMessage';
+import { isErrorWithMessage } from '../../utils/isErrorWithMessage';
 import { useState } from 'react';
 import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 
@@ -17,7 +14,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const [loginUser, loginUserResult] = useLoginMutation();
   const [error, setError] = useState('');
-  const login = handleErrors(async (data: UserData) => {
+  const login = async (data: UserData) => {
     try {
       await loginUser(data).unwrap();
       navigate(Paths.home);
@@ -29,12 +26,15 @@ export const Login = () => {
         setError('Unknown error');
       }
     }
-  });
+  };
   return (
     <Layout>
       <Row align="middle" justify="center">
         <Card title="SignIn" style={{ width: '30rem' }}>
-          <Form onFinish={login}>
+          <Form
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onFinish={login}
+          >
             <CustomInput name="email" placeholder="email" type="email" />
             <PasswordInput name="password" placeholder="password" />
             <CustomButton type="primary" htmlType="submit">
